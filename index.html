@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Polyfill test</title>
+  </head>
+  <body>
+    <script src="./dist/whichPolyfill.min.js"></script>
+    <script>
+      !(function() {
+        const bundles = [
+          'https://cdn.example.com/static/js/runtime.js',
+          'https://cdn.example.com/static/js/main.js',
+          'https://cdn.example.com/static/js/homepage.js',
+        ]
+        loadBundles = function() {
+          bundles.forEach(function(src) {
+            // const bundle = document.createElement('script')
+            // bundle.src = src
+            // bundle.async = false
+            // bundle.crossorigin = "anonymous"
+            // document.body.appendChild(bundle)
+            console.log('Loading bundle:', src)
+          })
+        }
+        loadPolyfill = function() {
+          const polyfill = document.createElement('script')
+          const timeout = setTimeout(function() {
+            console.warn('Polyfill timed out!')
+          }, 1000)
+          polyfill.src = './dist/polyfill.' + whichPolyfill() + '.min.js'
+          polyfill.async = false
+          polyfill.crossorigin = 'anonymous'
+          polyfill.onload = function() {
+            clearTimeout(timeout)
+            loadBundles()
+          }
+          polyfill.onerror = function(error) {
+            console.error('Polyfill load error!', error)
+          }
+          document.body.appendChild(polyfill)
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          const raf =
+            window.requestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            window.setTimeout
+          raf(loadPolyfill)
+        })
+      })()
+    </script>
+  </body>
+</html>
