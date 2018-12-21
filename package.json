@@ -22,7 +22,8 @@
     "polyfill:current": "cross-env POLYFILL_ENV=current rollup -c",
     "build": "yarn clean && mkdir -p dist && yarn polyfill:current && yarn polyfill:recent && yarn polyfill:legacy",
     "format": "prettier --write \"**/*.{html,md,mjs,js,jsx}\"",
-    "clean": "rimraf lib dist es coverage"
+    "clean": "rimraf lib dist es coverage",
+    "prepublish": "yarn build"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",

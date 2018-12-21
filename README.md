@@ -160,7 +160,7 @@ Notice that no version of Safari makes the cut. Essentially, support for `Inters
 These are the first browsers to support both `class` and `fetch`
 
 ### Legacy
-- >0.2%
+- &gt; 0.2%
 - not dead
 - ie 11
 - chrome 41
