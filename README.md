@@ -31,8 +31,9 @@ const config = {
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: 'node_modules/@zumper/polyfill/dist/polyfill.*.min.js',
-        to: 'build/static/js/'
+        from: './node_modules/@zumper/polyfill/dist/polyfill.*.min.js',
+        to: './build/static/js',
+        transformPath: targetPath => targetPath.replace(/(.*)node_modules[/]@zumper[/]polyfill[/]dist[/](.*[.]min[.]js)$/, '$1$2'),
       }
     ])
   ]
@@ -79,7 +80,7 @@ Below is an example of the bottom of a typical document.
       'https://cdn.example.com/static/js/main.js',
       'https://cdn.example.com/static/js/homepage.js',
     ]
-    loadBundles = function() {
+    var loadBundles = function() {
       bundles.forEach(function(src) {
         var bundle = document.createElement('script')
         bundle.src = src
@@ -88,7 +89,7 @@ Below is an example of the bottom of a typical document.
         document.body.appendChild(bundle)
       })
     }
-    loadPolyfill = function() {
+    var loadPolyfill = function() {
       var polyfill = document.createElement('script')
       var timeout = setTimeout(function() {
         console.warn('Polyfill timed out!')
