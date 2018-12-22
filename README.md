@@ -52,7 +52,7 @@ export default `<script>${whichPolyfill}</script>`
 
 ### Loading your bundles after loading the right polyfill
 
-At Zumper we use [`@loadable/component`](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/) to know which bundles to load. We generate our final HTML on the server and add those bundles to the output.
+At Zumper, we use [`@loadable/component`](https://www.smooth-code.com/open-source/loadable-components/docs/server-side-rendering/) to know which bundles to load. We generate our final HTML on the server and add those bundles to the output.
 
 Below is an example of the bottom of a typical document.
 
@@ -124,7 +124,7 @@ Below is an example of the bottom of a typical document.
 
 ## Alternate import usage
 
-We also publish cjs and es builds in the `lib` and `es` folders respectively. Feel free to let us know if this is useful to you!
+We also publish cjs and es builds in the `lib` and `es` folders respectively. Feel free to let us know if those are useful to you!
 
 ```js
 // es version
