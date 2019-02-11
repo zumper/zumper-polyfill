@@ -32,7 +32,7 @@ const config = {
     new CopyWebpackPlugin([
       {
         from: './node_modules/@zumper/polyfill/dist/polyfill.*.min.js',
-        to: './build/static/js',
+        to: './build/js/',
         transformPath: targetPath => targetPath.replace(/(.*)node_modules[/]@zumper[/]polyfill[/]dist[/](.*[.]min[.]js)$/, '$1$2'),
       }
     ])
@@ -64,11 +64,11 @@ Below is an example of the bottom of a typical document.
 
 ```html
 <!-- 1. use preload for all of the bundles -->
-<link rel="preload" href="https://cdn.example.com/static/js/runtime~main.js" as="script" />
-<link rel="preload" href="https://cdn.example.com/static/js/main.js" as="script" />
-<link rel="preload" href="https://cdn.example.com/static/js/homepage.js" as="script" />
-<link rel="preload" href="https://cdn.example.com/static/css/main.css" as="style" />
-<link rel="preload" href="https://cdn.example.com/static/css/homepage.css" as="style" />
+<link rel="preload" href="https://cdn.example.com/js/runtime~main.js" as="script" />
+<link rel="preload" href="https://cdn.example.com/js/main.js" as="script" />
+<link rel="preload" href="https://cdn.example.com/js/homepage.js" as="script" />
+<link rel="preload" href="https://cdn.example.com/css/main.css" as="style" />
+<link rel="preload" href="https://cdn.example.com/css/homepage.css" as="style" />
 <script>
   // ... embedded whichPolyfill.js (see above)
 </script>
@@ -76,16 +76,16 @@ Below is an example of the bottom of a typical document.
   'use strict'
   !(function() {
     var bundles = [
-      'https://cdn.example.com/static/js/runtime~main.js',
-      'https://cdn.example.com/static/js/main.js',
-      'https://cdn.example.com/static/js/homepage.js',
+      'https://cdn.example.com/js/runtime~main.js',
+      'https://cdn.example.com/js/main.js',
+      'https://cdn.example.com/js/homepage.js',
     ]
     var loadBundles = function() {
       bundles.forEach(function(src) {
         var bundle = document.createElement('script')
         bundle.src = src
         bundle.async = false
-        bundle.crossorigin = 'anonymous'
+        bundle.crossOrigin = 'anonymous'
         document.body.appendChild(bundle)
       })
     }
@@ -95,9 +95,9 @@ Below is an example of the bottom of a typical document.
         console.warn('Polyfill timed out!')
       }, 1000)
       // 3. Choose the right polyfill to load
-      polyfill.src = 'https://cdn.example.com/static/js/polyfill.' + whichPolyfill() + '.min.js'
+      polyfill.src = 'https://cdn.example.com/js/polyfill.' + whichPolyfill() + '.min.js'
       polyfill.async = false
-      polyfill.crossorigin = 'anonymous'
+      polyfill.crossOrigin = 'anonymous'
 
       // 4. Delay loading the bundles until the polyfill has loaded
       polyfill.onload = function() {
