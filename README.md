@@ -33,10 +33,14 @@ const config = {
       {
         from: './node_modules/@zumper/polyfill/dist/polyfill.*.min.js',
         to: './build/js/',
-        transformPath: targetPath => targetPath.replace(/(.*)node_modules[/]@zumper[/]polyfill[/]dist[/](.*[.]min[.]js)$/, '$1$2'),
-      }
-    ])
-  ]
+        transformPath: (targetPath) =>
+          targetPath.replace(
+            /(.*)node_modules[/]@zumper[/]polyfill[/]dist[/](.*[.]min[.]js)$/,
+            '$1$2'
+          ),
+      },
+    ]),
+  ],
 }
 ```
 
@@ -64,11 +68,19 @@ Below is an example of the bottom of a typical document.
 
 ```html
 <!-- 1. use preload for all of the bundles -->
-<link rel="preload" href="https://cdn.example.com/js/runtime~main.js" as="script" />
+<link
+  rel="preload"
+  href="https://cdn.example.com/js/runtime~main.js"
+  as="script"
+/>
 <link rel="preload" href="https://cdn.example.com/js/main.js" as="script" />
 <link rel="preload" href="https://cdn.example.com/js/homepage.js" as="script" />
 <link rel="preload" href="https://cdn.example.com/css/main.css" as="style" />
-<link rel="preload" href="https://cdn.example.com/css/homepage.css" as="style" />
+<link
+  rel="preload"
+  href="https://cdn.example.com/css/homepage.css"
+  as="style"
+/>
 <script>
   // ... embedded whichPolyfill.js (see above)
 </script>
@@ -95,7 +107,8 @@ Below is an example of the bottom of a typical document.
         console.warn('Polyfill timed out!')
       }, 1000)
       // 3. Choose the right polyfill to load
-      polyfill.src = 'https://cdn.example.com/js/polyfill.' + whichPolyfill() + '.min.js'
+      polyfill.src =
+        'https://cdn.example.com/js/polyfill.' + whichPolyfill() + '.min.js'
       polyfill.async = false
       polyfill.crossOrigin = 'anonymous'
 
@@ -148,6 +161,7 @@ We use [`@babel/polyfill`](https://babeljs.io/docs/en/babel-polyfill) (which in 
 We essentially build the `@babel/polyfill` three times with different settings for `@babel/preset-env` each time.
 
 ### Current
+
 - chrome 58
 - firefox 55
 - edge 15
@@ -155,6 +169,7 @@ We essentially build the `@babel/polyfill` three times with different settings f
 Notice that no version of Safari makes the cut. Essentially, support for `IntersectionObserver` is required to be considered a "current" browser.
 
 ### Recent
+
 - chrome 49
 - firefox 45
 - safari 10.1
@@ -163,6 +178,7 @@ Notice that no version of Safari makes the cut. Essentially, support for `Inters
 These are the first browsers to support both `class` and `fetch`.
 
 ### Legacy
+
 - &gt; 0.2%
 - not dead
 - ie 11
