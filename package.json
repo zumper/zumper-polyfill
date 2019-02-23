@@ -24,7 +24,7 @@
     "clean": "rimraf lib dist es coverage",
     "preversion": "yarn format",
     "postversion": "git push && git push --tags",
-    "prepublish": "yarn build"
+    "prepare": "yarn build"
   },
   "dependencies": {
     "core-js": "^2.6.5",

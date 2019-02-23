@@ -1,90 +1,90 @@
 {
   "lib/polyfill.current.js": {
-    "bundled": 895,
-    "minified": 701,
-    "gzipped": 337
+    "bundled": 863,
+    "minified": 673,
+    "gzipped": 317
   },
   "es/polyfill.current.js": {
-    "bundled": 868,
-    "minified": 670,
-    "gzipped": 327,
+    "bundled": 836,
+    "minified": 642,
+    "gzipped": 308,
     "treeshaked": {
       "rollup": {
-        "code": 580,
+        "code": 577,
         "import_statements": 244
       },
       "webpack": {
-        "code": 1729
+        "code": 1726
       }
     }
   },
   "dist/polyfill.current.js": {
-    "bundled": 33283,
-    "minified": 13477,
-    "gzipped": 5461
+    "bundled": 33251,
+    "minified": 13469,
+    "gzipped": 5444
   },
   "dist/polyfill.current.min.js": {
-    "bundled": 33283,
-    "minified": 13477,
-    "gzipped": 5461
+    "bundled": 33251,
+    "minified": 13469,
+    "gzipped": 5444
   },
   "lib/polyfill.recent.js": {
-    "bundled": 1262,
-    "minified": 1115,
-    "gzipped": 417
+    "bundled": 1232,
+    "minified": 1093,
+    "gzipped": 398
   },
   "es/polyfill.recent.js": {
-    "bundled": 1215,
-    "minified": 1054,
-    "gzipped": 403,
+    "bundled": 1185,
+    "minified": 1032,
+    "gzipped": 385,
     "treeshaked": {
       "rollup": {
-        "code": 964,
+        "code": 967,
         "import_statements": 636
       },
       "webpack": {
-        "code": 2450
+        "code": 2453
       }
     }
   },
   "dist/polyfill.recent.js": {
-    "bundled": 93756,
-    "minified": 33901,
-    "gzipped": 12631
+    "bundled": 93726,
+    "minified": 33895,
+    "gzipped": 12610
   },
   "dist/polyfill.recent.min.js": {
-    "bundled": 93941,
-    "minified": 33939,
-    "gzipped": 12649
+    "bundled": 93911,
+    "minified": 33933,
+    "gzipped": 12634
   },
   "lib/polyfill.legacy.js": {
-    "bundled": 2777,
-    "minified": 2264,
-    "gzipped": 652
+    "bundled": 2747,
+    "minified": 2250,
+    "gzipped": 637
   },
   "es/polyfill.legacy.js": {
-    "bundled": 2690,
-    "minified": 2143,
-    "gzipped": 642,
+    "bundled": 2660,
+    "minified": 2129,
+    "gzipped": 625,
     "treeshaked": {
       "rollup": {
-        "code": 2053,
+        "code": 2064,
         "import_statements": 1487
       },
       "webpack": {
-        "code": 4219
+        "code": 4230
       }
     }
   },
   "dist/polyfill.legacy.js": {
-    "bundled": 117389,
-    "minified": 46225,
-    "gzipped": 16496
+    "bundled": 117345,
+    "minified": 46227,
+    "gzipped": 16485
   },
   "dist/polyfill.legacy.min.js": {
-    "bundled": 117774,
-    "minified": 46384,
-    "gzipped": 16544
+    "bundled": 117730,
+    "minified": 46386,
+    "gzipped": 16537
   },
   "dist/whichPolyfill.min.js": {
     "bundled": 2826,
