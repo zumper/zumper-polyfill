@@ -6,9 +6,9 @@ This polyfill is designed to work differently than [`@babel/polyfill`](https://b
 
 Instead of having just one polyfill, we decided to build three polyfills so that browsers with more capabilities will get a smaller file. This is similar in concept to what [polyfill.io](https://polyfill.io/v2/docs/) offers. However, instead of supporting an infinite number of polyfill combinations, we chose the three groupings that seemed to balance file size well enough to suit our needs.
 
-- **Current:** 5.4 kB gzipped, the latest features; requires very few polyfills.
-- **Recent:** 12.6 kB gzipped, fairly new; needs more polyfills.
-- **Legacy:** 16.5 kB gzipped, needs the most polyfills.
+- **Current:** 6.7 kB gzipped, the latest features; requires very few polyfills.
+- **Recent:** 13.8 kB gzipped, fairly new; needs more polyfills.
+- **Legacy:** 17.7 kB gzipped, needs the most polyfills.
 
 ## Install
 
