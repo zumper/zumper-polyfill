@@ -27,7 +27,6 @@ export default [
       }),
       commonjs(),
       babel(),
-      sizeSnapshot(),
     ],
   },
 
@@ -43,7 +42,6 @@ export default [
       }),
       commonjs(),
       babel(),
-      sizeSnapshot(),
     ],
   },
 
@@ -64,7 +62,6 @@ export default [
       nodeResolve(),
       commonjs(),
       babel(),
-      sizeSnapshot(),
     ],
   },
 
@@ -82,9 +79,7 @@ export default [
         'process.env.NODE_ENV': JSON.stringify('production'),
         'process.env.POLYFILL_ENV': JSON.stringify(polyfillEnv),
       }),
-      nodeResolve({
-        jsnext: true,
-      }),
+      nodeResolve(),
       commonjs(),
       babel(),
       sizeSnapshot(),
@@ -109,9 +104,7 @@ export default [
       indent: false,
     },
     plugins: [
-      nodeResolve({
-        jsnext: true,
-      }),
+      nodeResolve(),
       commonjs(),
       babel(),
       sizeSnapshot(),

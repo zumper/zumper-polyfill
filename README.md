@@ -6,9 +6,9 @@ This polyfill is designed to work differently than [`@babel/polyfill`](https://b
 
 Instead of having just one polyfill, we decided to build three polyfills so that browsers with more capabilities will get a smaller file. This is similar in concept to what [polyfill.io](https://polyfill.io/v2/docs/) offers. However, instead of supporting an infinite number of polyfill combinations, we chose the three groupings that seemed to balance file size well enough to suit our needs.
 
-- **Current:** 6.7 kB gzipped, the latest features; requires very few polyfills.
-- **Recent:** 13.8 kB gzipped, fairly new; needs more polyfills.
-- **Legacy:** 17.7 kB gzipped, needs the most polyfills.
+- **Current:** 9.9 kB gzipped, the latest features; requires very few polyfills.
+- **Recent:** 15.6 kB gzipped, fairly new; needs more polyfills.
+- **Legacy:** 25.2 kB gzipped, needs the most polyfills.
 
 ## Install
 
@@ -46,10 +46,30 @@ const config = {
 
 ### Embedding the `whichPolyfill` function in your HTML
 
-We also ship a `whichPolyfill` function in the `dist` folder. This function will identify the right polyfill for the current browser using feature detection. It is recommended to use the [`raw-loader`](https://github.com/webpack-contrib/raw-loader) in your server-side-rendering code to import that file as a string and embed it in your output HTML.
+We also ship a `whichPolyfill` function in the `dist` folder. This function will identify the right polyfill for the current browser using feature detection.
+
+It is possible to read the minified polyfill directly from the `node_modules` folder.
 
 ```js
-import whichPolyfill from 'raw-loader!@zumper/polyfill/dist/whichPolyfill.min.js'
+const readWhichPolyfill = () => {
+  // locate the minified file
+  const whichPolyfillPath = path.join(
+    path.dirname(require.resolve('@zumper/polyfill')),
+    '..',
+    'dist',
+    'whichPolyfill.min.js'
+  )
+  return fs.readFileSync(whichPolyfillPath)
+}
+
+// read the minified script to a string
+let whichPolyfill
+try {
+  whichPolyfill = readWhichPolyfill()
+} catch (error) {
+  Log.debug(error)
+  whichPolyfill = "window.whichPolyfill = function() { return 'legacy' };"
+}
 
 // presumably you'd add this to your node server response somewhere
 export default `<script>${whichPolyfill}</script>`

@@ -1,94 +1,22 @@
 {
-  "lib/polyfill.current.js": {
-    "bundled": 1132,
-    "minified": 889,
-    "gzipped": 426
-  },
-  "es/polyfill.current.js": {
-    "bundled": 1103,
-    "minified": 855,
-    "gzipped": 417,
-    "treeshaked": {
-      "rollup": {
-        "code": 790,
-        "import_statements": 274
-      },
-      "webpack": {
-        "code": 1972
-      }
-    }
-  },
-  "dist/polyfill.current.js": {
-    "bundled": 45458,
-    "minified": 17613,
-    "gzipped": 6679
-  },
   "dist/polyfill.current.min.js": {
-    "bundled": 45458,
-    "minified": 17613,
-    "gzipped": 6679
-  },
-  "lib/polyfill.recent.js": {
-    "bundled": 1495,
-    "minified": 1307,
-    "gzipped": 503
-  },
-  "es/polyfill.recent.js": {
-    "bundled": 1446,
-    "minified": 1243,
-    "gzipped": 493,
-    "treeshaked": {
-      "rollup": {
-        "code": 1178,
-        "import_statements": 666
-      },
-      "webpack": {
-        "code": 2698
-      }
-    }
-  },
-  "dist/polyfill.recent.js": {
-    "bundled": 105919,
-    "minified": 38037,
-    "gzipped": 13780
+    "bundled": 75723,
+    "minified": 25456,
+    "gzipped": 9861
   },
   "dist/polyfill.recent.min.js": {
-    "bundled": 106104,
-    "minified": 38075,
-    "gzipped": 13803
-  },
-  "lib/polyfill.legacy.js": {
-    "bundled": 3010,
-    "minified": 2464,
-    "gzipped": 733
-  },
-  "es/polyfill.legacy.js": {
-    "bundled": 2921,
-    "minified": 2340,
-    "gzipped": 722,
-    "treeshaked": {
-      "rollup": {
-        "code": 2275,
-        "import_statements": 1517
-      },
-      "webpack": {
-        "code": 4475
-      }
-    }
-  },
-  "dist/polyfill.legacy.js": {
-    "bundled": 129538,
-    "minified": 50369,
-    "gzipped": 17640
+    "bundled": 135510,
+    "minified": 43983,
+    "gzipped": 15645
   },
   "dist/polyfill.legacy.min.js": {
-    "bundled": 129923,
-    "minified": 50528,
-    "gzipped": 17692
+    "bundled": 209014,
+    "minified": 72940,
+    "gzipped": 25244
   },
   "dist/whichPolyfill.min.js": {
-    "bundled": 2826,
-    "minified": 707,
-    "gzipped": 388
+    "bundled": 3455,
+    "minified": 1008,
+    "gzipped": 494
   }
 }
