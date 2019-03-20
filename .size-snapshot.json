@@ -48,7 +48,7 @@
     }
   },
   "dist/polyfill.recent.js": {
-    "bundled": 105955,
+    "bundled": 105919,
     "minified": 38037,
     "gzipped": 13780
   },
