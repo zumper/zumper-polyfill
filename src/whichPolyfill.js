@@ -43,7 +43,8 @@ const legacy = [
   notUndefined(global.fetch), // whatwg-fetch
   notUndefined(global.requestAnimationFrame) &&
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
-  notUndefined(global.URL) && doesNotThrow(() => global.URL && new global.URL('')), // URL
+  notUndefined(global.URL) &&
+    doesNotThrow(() => global.URL && new global.URL('')), // URL
 ]
 // polyfills in legacy and recent (but not current)
 const recent = [
