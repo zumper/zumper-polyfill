@@ -21,6 +21,7 @@ const string = ''
 const legacy = [
   notUndefined(array.find), // array.find
   notUndefined(array.findIndex), // array.find-index
+  notUndefined(Array.from), // array.from
   notUndefined(array.includes), // array.includes
   // skipping array.iterator
   // skipping function.has-instance
@@ -35,6 +36,7 @@ const legacy = [
   notUndefined(obj.isSealed), // object.is-sealed
   notUndefined(obj.keys), // object.keys
   notUndefined(obj.seal), // object.seal
+  notUndefined(global.Promise), // promise
   notUndefined(string.endsWith), // string.ends-with
   notUndefined(string.includes), // string.includes
   // skipping string.iterator
@@ -44,20 +46,20 @@ const legacy = [
   notUndefined(global.requestAnimationFrame) &&
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
   notUndefined(global.URL) &&
-    doesNotThrow(() => global.URL && new global.URL('')), // URL
+    doesNotThrow(() => global.URL && new global.URL('')), // web.url
 ]
 // polyfills in legacy and recent (but not current)
 const recent = [
-  notUndefined(Array.from), // array.from
   notUndefined(global.Map), // map
   notUndefined(obj.entries), // object.entries
   notUndefined(obj.getOwnPropertyDescriptors), // object.get-own-property-descriptors
   notUndefined(obj.values), // object.values
-  notUndefined(global.Promise), // promise
   notUndefined(global.Set), // set
   notUndefined(global.WeakMap), // weak-map
   notUndefined(global.WeakSet), // weak-set
   notUndefined(global.IntersectionObserver), // intersection-observer
+  notUndefined(global.URLSearchParams), // web.url-search-params
+  notUndefined(NodeList.prototype.forEach), // web.dom-collections.for-each
 ]
 // polyfills in legacy, recent and current
 // NOTE: we don't need to test for current because that's the fallback polyfill
