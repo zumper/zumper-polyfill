@@ -73,7 +73,7 @@ const recent = [
 // ]
 
 const testFeature = (feature) => feature === false
-global.whichPolyfill = () => {
+module.exports = () => {
   try {
     if (legacy.some(testFeature)) {
       return 'legacy'
