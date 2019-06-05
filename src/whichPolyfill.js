@@ -46,7 +46,7 @@ const legacy = [
   notUndefined(global.requestAnimationFrame) &&
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
   notUndefined(global.URL) &&
-    doesNotThrow(() => global.URL && new global.URL('')), // web.url
+    doesNotThrow(() => global.URL && new global.URL('http://a')), // web.url
 ]
 // polyfills in legacy and recent (but not current)
 const recent = [
