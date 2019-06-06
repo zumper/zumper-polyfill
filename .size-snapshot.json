@@ -10,13 +10,13 @@
     "gzipped": 13943
   },
   "dist/polyfill.legacy.min.js": {
-    "bundled": 209535,
-    "minified": 72998,
-    "gzipped": 25198
+    "bundled": 209902,
+    "minified": 73109,
+    "gzipped": 25230
   },
   "dist/whichPolyfill.min.js": {
-    "bundled": 3578,
-    "minified": 1049,
-    "gzipped": 527
+    "bundled": 4049,
+    "minified": 1217,
+    "gzipped": 614
   }
 }

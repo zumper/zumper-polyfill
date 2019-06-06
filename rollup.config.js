@@ -86,10 +86,11 @@ export default [
       terser({
         compress: {
           pure_getters: true,
-          unsafe: true,
+          unsafe: false,
           unsafe_comps: true,
           warnings: false,
         },
+        safari10: true,
       }),
     ],
   },
@@ -115,6 +116,7 @@ export default [
           unsafe_comps: true,
           warnings: false,
         },
+        safari10: true,
       }),
     ],
   },

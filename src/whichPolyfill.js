@@ -3,6 +3,7 @@
 
 // legacy is a super set of polyfills.
 // recent and current are sub sets of legacy
+const has = (thing, key) => notUndefined(thing) && notUndefined(thing[key])
 const notUndefined = (thing) => typeof thing !== 'undefined'
 const doesNotThrow = (func) => {
   try {
@@ -16,6 +17,7 @@ const obj = Object
 // array/string instance to test against
 const array = []
 const string = ''
+const symbol = global.Symbol
 
 // polyfills unique to legacy
 const legacy = [
@@ -42,6 +44,8 @@ const legacy = [
   // skipping string.iterator
   notUndefined(string.repeat), // string.repeat
   notUndefined(string.startsWith), // string.starts-with
+  notUndefined(symbol), // symbol
+  has(symbol, 'iterator'), // symbol.iterator
   notUndefined(global.fetch), // whatwg-fetch
   notUndefined(global.requestAnimationFrame) &&
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
@@ -55,6 +59,11 @@ const recent = [
   notUndefined(obj.getOwnPropertyDescriptors), // object.get-own-property-descriptors
   notUndefined(obj.values), // object.values
   notUndefined(global.Set), // set
+  has(symbol, 'hasInstance'), // symbol.has-instance
+  has(symbol, 'isConcatSpreadable'), // symbol.is-concat-spreadable
+  has(symbol, 'species'), // symbol.species
+  has(symbol, 'toPrimitive'), // symbol.to-primitive
+  has(symbol, 'unscopables'), // symbol.unscopables
   notUndefined(global.WeakMap), // weak-map
   notUndefined(global.WeakSet), // weak-set
   notUndefined(global.IntersectionObserver), // intersection-observer
