@@ -26,14 +26,16 @@ const legacy = [
   notUndefined(Array.from), // array.from
   notUndefined(array.includes), // array.includes
   // skipping array.iterator
-  // skipping function.has-instance
   notUndefined(Function.prototype.name), // function.name
   notUndefined(Number.parseFloat), // number.parse-float
   notUndefined(Number.parseInt), // number.parse-int
   notUndefined(obj.assign), // object.assign
+  notUndefined(obj.defineProperties), // object.define-properties
+  notUndefined(obj.defineProperty), // object.define-property
   notUndefined(obj.freeze), // object.freeze
   notUndefined(obj.getOwnPropertyDescriptor), // object.get-own-property-descriptor
   notUndefined(obj.getOwnPropertyNames), // object.get-own-property-names
+  notUndefined(obj.is), // object.is
   notUndefined(obj.isFrozen), // object.is-frozen
   notUndefined(obj.isSealed), // object.is-sealed
   notUndefined(obj.keys), // object.keys
@@ -50,7 +52,7 @@ const legacy = [
   notUndefined(global.requestAnimationFrame) &&
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
   notUndefined(global.URL) &&
-    doesNotThrow(() => global.URL && new global.URL('http://a')), // web.url
+    doesNotThrow(() => global.URL && new global.URL('http://0')), // web.url
 ]
 // polyfills in legacy and recent (but not current)
 const recent = [

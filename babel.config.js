@@ -8,6 +8,7 @@ switch (POLYFILL_ENV) {
     targets = {
       chrome: '58',
       firefox: '55',
+      ios: '12.2',
       safari: '12.1',
       edge: '17',
     }
@@ -17,6 +18,7 @@ switch (POLYFILL_ENV) {
     targets = {
       chrome: '49',
       firefox: '45',
+      ios: '10.3',
       safari: '10.1',
       edge: '14',
     }
