@@ -6,9 +6,9 @@ This polyfill is designed to work differently than [`@babel/polyfill`](https://b
 
 Instead of having just one polyfill, we decided to build three polyfills so that browsers with more capabilities will get a smaller file. This is similar in concept to what [polyfill.io](https://polyfill.io/v2/docs/) offers. However, instead of supporting an infinite number of polyfill combinations, we chose the three groupings that seemed to balance file size well enough to suit our needs.
 
-- **Current:** 5.9 kB gzipped, the latest features; requires very few polyfills.
-- **Recent:** 13.9 kB gzipped, fairly new; needs more polyfills.
-- **Legacy:** 25.1 kB gzipped, needs the most polyfills.
+- **Current:** 6 kB gzipped, the latest features; requires very few polyfills.
+- **Recent:** 14 kB gzipped, fairly new; needs more polyfills.
+- **Legacy:** 25 kB gzipped, needs the most polyfills.
 
 ## Install
 
@@ -182,18 +182,21 @@ We essentially build the `@babel/polyfill` three times with different settings f
 
 ### Current
 
-- chrome 58
-- firefox 55
-- edge 15
+- chrome: 58
+- firefox: 55
+- ios: 12.2
+- safari: 12.1
+- edge: 17
 
-Notice that no version of Safari makes the cut. Essentially, support for `IntersectionObserver` is required to be considered a "current" browser.
+Essentially, support for `IntersectionObserver` is required to be considered a "current" browser.
 
 ### Recent
 
-- chrome 49
-- firefox 45
-- safari 10.1
-- edge 14
+- chrome: 49
+- firefox: 45
+- ios: 10.3
+- safari: 10.1
+- edge: 14
 
 These are the first browsers to support both `class` and `fetch`.
 
@@ -204,6 +207,6 @@ These are the first browsers to support both `class` and `fetch`.
 - ie 11
 - chrome 41
 
-These are all of the browsers that are more or less the same as IE 11. We make sure to target [chrome 41 specifically](https://developers.google.com/search/docs/guides/rendering).
+These are all of the browsers that are more or less the same as IE 11.
 
 We also exclude a large number of polyfills that we didn't see much use for. A future version of this polyfill may make it possible to configure this list to suit your needs. In our experience, many of the polyfills for things like regular expressions, math operations and international dates are not very useful (for our projects).
