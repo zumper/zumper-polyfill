@@ -48,7 +48,6 @@ module.exports = {
           'es.array.concat',
           'es.array.copy-within',
           'es.array.every',
-          'es.array.fill',
           'es.array.filter',
           !useLegacy && 'es.array.find',
           !useLegacy && 'es.array.find-index',

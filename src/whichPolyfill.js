@@ -21,6 +21,7 @@ const symbol = global.Symbol
 
 // polyfills unique to legacy
 const legacy = [
+  notUndefined(array.fill), // array.fill
   notUndefined(array.find), // array.find
   notUndefined(array.findIndex), // array.find-index
   notUndefined(Array.from), // array.from

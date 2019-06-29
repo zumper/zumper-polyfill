@@ -1,22 +1,22 @@
 {
   "dist/polyfill.current.min.js": {
-    "bundled": 44973,
-    "minified": 15146,
-    "gzipped": 6002
+    "bundled": 46800,
+    "minified": 15407,
+    "gzipped": 6107
   },
   "dist/polyfill.recent.min.js": {
-    "bundled": 121557,
-    "minified": 39671,
-    "gzipped": 13943
+    "bundled": 124767,
+    "minified": 40065,
+    "gzipped": 14134
   },
   "dist/polyfill.legacy.min.js": {
-    "bundled": 209902,
-    "minified": 73109,
-    "gzipped": 25230
+    "bundled": 214192,
+    "minified": 73833,
+    "gzipped": 25537
   },
   "dist/whichPolyfill.min.js": {
-    "bundled": 4174,
-    "minified": 1267,
-    "gzipped": 624
+    "bundled": 4214,
+    "minified": 1277,
+    "gzipped": 627
   }
 }
