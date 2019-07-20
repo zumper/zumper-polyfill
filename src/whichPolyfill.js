@@ -28,6 +28,7 @@ const legacy = [
   notUndefined(array.includes), // array.includes
   // skipping array.iterator
   notUndefined(Function.prototype.name), // function.name
+  notUndefined(Math.sign), // math.sign
   notUndefined(Number.parseFloat), // number.parse-float
   notUndefined(Number.parseInt), // number.parse-int
   notUndefined(obj.assign), // object.assign
@@ -75,16 +76,6 @@ const recent = [
 ]
 // polyfills in legacy, recent and current
 // NOTE: we don't need to test for current because that's the fallback polyfill
-// const current = [
-//   // skipping array.sort
-//   global.Promise &&
-//     global.Promise.prototype &&
-//     notUndefined(global.Promise.prototype.finally), // promise.finally
-//   notUndefined(global.Symbol), // symbol
-//   // skipping symbol.async-iterator
-//   // skipping web.timers
-//   // skipping web.dom.iterable
-// ]
 
 const testFeature = (feature) => feature === false
 module.exports = () => {
