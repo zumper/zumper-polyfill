@@ -29,6 +29,7 @@ const legacy = [
   // skipping array.iterator
   notUndefined(Function.prototype.name), // function.name
   notUndefined(Math.sign), // math.sign
+  notUndefined(Number.isFinite), // number.is-finite
   notUndefined(Number.parseFloat), // number.parse-float
   notUndefined(Number.parseInt), // number.parse-int
   notUndefined(obj.assign), // object.assign
