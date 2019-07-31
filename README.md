@@ -8,7 +8,7 @@ Instead of having just one polyfill, we decided to build three polyfills so that
 
 - **Current:** 6 kB gzipped, the latest features; requires very few polyfills.
 - **Recent:** 14 kB gzipped, fairly new; needs more polyfills.
-- **Legacy:** 25 kB gzipped, needs the most polyfills.
+- **Legacy:** 27 kB gzipped, needs the most polyfills.
 
 ## Install
 
@@ -176,7 +176,7 @@ import alsoLegacyPolyfill from '@zumper/polyfill'
 
 ## About the polyfills
 
-We use [`@babel/polyfill`](https://babeljs.io/docs/en/babel-polyfill) (which in turn uses [`core-js`](https://www.npmjs.com/package/core-js)) to generate each of the three polyfill files. We also include [`raf`](https://www.npmjs.com/package/raf), [`whatwg-fetch`](https://www.npmjs.com/package/whatwg-fetch), [`intersection-observer`](https://www.npmjs.com/package/intersection-observer) and a [`requestIdleCallback` shim](https://gist.github.com/paullewis/55efe5d6f05434a96c36).
+We use [`@babel/polyfill`](https://babeljs.io/docs/en/babel-polyfill) (which in turn uses [`core-js`](https://www.npmjs.com/package/core-js)) to generate each of the three polyfill files. We also include [`raf`](https://www.npmjs.com/package/raf), [`whatwg-fetch`](https://www.npmjs.com/package/whatwg-fetch), [`intersection-observer`](https://www.npmjs.com/package/intersection-observer), [`smoothscroll-polyfill`](https://www.npmjs.com/package/smoothscroll-polyfill) and a [`requestIdleCallback` shim](https://gist.github.com/paullewis/55efe5d6f05434a96c36).
 
 We essentially build the `@babel/polyfill` three times with different settings for `@babel/preset-env` each time.
 
