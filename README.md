@@ -188,7 +188,7 @@ We essentially build the `@babel/polyfill` three times with different settings f
 - safari: 12.1
 - edge: 17
 
-Essentially, support for `IntersectionObserver` is required to be considered a "current" browser.
+Essentially, support for [`IntersectionObserver`](https://caniuse.com/#feat=intersectionobserver) is required to be considered a "current" browser.
 
 ### Recent
 
@@ -198,14 +198,14 @@ Essentially, support for `IntersectionObserver` is required to be considered a "
 - safari: 10.1
 - edge: 14
 
-These are the first browsers to support both `class` and `fetch`.
+These are the first browsers to support both [`class`](https://caniuse.com/#feat=es6-class) and [`fetch`](https://caniuse.com/#feat=fetch).
 
 ### Legacy
 
 - &gt; 0.2%
 - not dead
 - ie 11
-- chrome 41
+- chrome 38
 
 These are all of the browsers that are more or less the same as IE 11.
 

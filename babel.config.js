@@ -24,7 +24,7 @@ switch (POLYFILL_ENV) {
     }
     break
   case 'legacy':
-    targets = ['>0.2%', 'not dead', 'ie 11', 'chrome 41']
+    targets = ['>0.2%', 'not dead', 'ie 11', 'chrome 38']
     break
 }
 
@@ -42,9 +42,7 @@ module.exports = {
         corejs: 3,
         modules: false,
         exclude: [
-          // 'es.*.species',
           'es.*.to-string-tag',
-          // 'es.*.unscopables',
           'es.array.concat',
           'es.array.copy-within',
           'es.array.every',
@@ -57,7 +55,6 @@ module.exports = {
           'es.array.for-each',
           'es.array.index-of',
           !useLegacy && 'es.array.includes',
-          // 'es.array.iterator',
           'es.array.join',
           'es.array.last-index-of',
           'es.array.map',
@@ -68,7 +65,6 @@ module.exports = {
           'es.array.slice',
           'es.array.some',
           'es.array.sort',
-          // 'es.array.species',
           'es.array.splice',
           'es.array.unscopables.flat',
           'es.array.unscopables.flat-map',
@@ -90,7 +86,6 @@ module.exports = {
           'es.math.imul',
           'es.math.log10',
           'es.math.log1p',
-          // 'es.math.log2',
           'es.math.sinh',
           'es.math.tanh',
           'es.math.trunc',
@@ -145,7 +140,6 @@ module.exports = {
           'es.string.trim',
           'es.typed.*',
           'transform-regenerator',
-          // 'web.dom-collections.iterator',
           'web.immediate',
           'web.queue-microtask',
           !useLegacy && 'web.url',
