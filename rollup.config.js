@@ -97,6 +97,31 @@ export default [
     ],
   },
 
+  // IIFE Production (whichBundle)
+  polyfillEnv === 'd-grade' && {
+    input: 'src/whichBundle.js',
+    output: {
+      file: `dist/whichBundle.min.js`,
+      format: 'iife',
+      name: 'whichBundle',
+      indent: false,
+    },
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      babel(),
+      sizeSnapshot(),
+      terser({
+        compress: {
+          pure_getters: true,
+          unsafe: true,
+          unsafe_comps: true,
+          warnings: false,
+        },
+        safari10: true,
+      }),
+    ],
+  },
   // IIFE Production (whichPolyfill)
   polyfillEnv === 'd-grade' && {
     input: 'src/whichPolyfill.js',

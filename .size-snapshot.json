@@ -23,5 +23,10 @@
     "bundled": 4931,
     "minified": 1544,
     "gzipped": 733
+  },
+  "dist/whichBundle.min.js": {
+    "bundled": 3130,
+    "minified": 1294,
+    "gzipped": 659
   }
 }

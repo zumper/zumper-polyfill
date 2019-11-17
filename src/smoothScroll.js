@@ -2,7 +2,9 @@
 const smoothScroll = require('smoothscroll-polyfill')
 if (
   !('scrollBehavior' in document.documentElement.style) ||
-  (!global.scroll || !global.scrollTo || !global.scrollBy) ||
+  !global.scroll ||
+  !global.scrollTo ||
+  !global.scrollBy ||
   !(global.HTMLElement || global.Element).prototype.scrollIntoView
 ) {
   smoothScroll.polyfill()
