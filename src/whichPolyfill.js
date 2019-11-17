@@ -16,6 +16,8 @@ const obj = Object
 const array = []
 const string = ''
 const symbol = global.Symbol
+const iterator = symbol && symbol.iterator
+const species = symbol && symbol.species
 
 // dGrade is a super set of polyfills.
 // cGrade and bGrade are sub sets of dGrade
@@ -28,8 +30,8 @@ const dGrade = [
   notUndefined(array.findIndex), // array.find-index
   notUndefined(Array.from), // array.from
   notUndefined(array.includes), // array.includes
-  // skipping array.iterator
   notUndefined(Function.prototype.name), // function.name
+  notUndefined(Math.log2), // math.log2
   notUndefined(Math.sign), // math.sign
   notUndefined(Number.isFinite), // number.is-finite
   notUndefined(Number.parseFloat), // number.parse-float
@@ -48,11 +50,11 @@ const dGrade = [
   notUndefined(global.Promise), // promise
   notUndefined(string.endsWith), // string.ends-with
   notUndefined(string.includes), // string.includes
-  // skipping string.iterator
+  has(string, iterator), // es.string.iterator
   notUndefined(string.repeat), // string.repeat
   notUndefined(string.startsWith), // string.starts-with
   notUndefined(symbol), // symbol
-  has(symbol, 'iterator'), // symbol.iterator
+  notUndefined(iterator), // symbol.iterator
   notUndefined(global.fetch), // whatwg-fetch
   notUndefined(global.requestAnimationFrame) &&
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
@@ -62,6 +64,7 @@ const dGrade = [
 // polyfills in dGrade and cGrade (but not bGrade)
 // NOTE: a "cGrade" browser would fail these tests
 const cGrade = [
+  notUndefined(Array[species]), // es.array.species
   notUndefined(global.Map), // map
   notUndefined(obj.entries), // object.entries
   notUndefined(obj.getOwnPropertyDescriptors), // object.get-own-property-descriptors
@@ -69,7 +72,7 @@ const cGrade = [
   notUndefined(global.Set), // set
   has(symbol, 'hasInstance'), // symbol.has-instance
   has(symbol, 'isConcatSpreadable'), // symbol.is-concat-spreadable
-  has(symbol, 'species'), // symbol.species
+  notUndefined(species), // symbol.species
   has(symbol, 'toPrimitive'), // symbol.to-primitive
   has(symbol, 'unscopables'), // symbol.unscopables
   notUndefined(global.WeakMap), // weak-map
@@ -81,15 +84,16 @@ const cGrade = [
 // polyfills in dGrade, cGrade and bGrade
 // NOTE: a "bGrade" browser would fail these tests
 const bGrade = [
-  has(symbol && symbol(''), 'description'), // symbol.description
+  has(symbol && symbol(string), 'description'), // symbol.description
   has(symbol, 'asyncIterator'), // symbol.async-iterator
   has(symbol, 'match'), // es.symbol.match
   has(symbol, 'replace'), // es.symbol.replace
   has(symbol, 'search'), // es.symbol.search
   has(symbol, 'split'), // es.symbol.split
-  has(array, symbol && symbol.iterator), // es.array.iterator
+  has(array, iterator), // es.array.iterator
   notUndefined(string.trimEnd), // es.string.trim-end
   notUndefined(string.trimStart), // es.string.trim-start
+  has(NodeList.prototype, iterator), // web.dom-collections.iterator
 ]
 // NOTE: we don't need to test for "aGrade" because that's the fallback polyfill
 

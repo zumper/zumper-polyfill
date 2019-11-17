@@ -16,10 +16,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "polyfill:d-grade": "cross-env POLYFILL_ENV=d-grade rollup -c",
-    "polyfill:c-grade": "cross-env POLYFILL_ENV=c-grade rollup -c",
-    "polyfill:b-grade": "cross-env POLYFILL_ENV=b-grade rollup -c",
     "polyfill:a-grade": "cross-env POLYFILL_ENV=a-grade rollup -c",
+    "polyfill:b-grade": "cross-env POLYFILL_ENV=b-grade rollup -c",
+    "polyfill:c-grade": "cross-env POLYFILL_ENV=c-grade rollup -c",
+    "polyfill:d-grade": "cross-env POLYFILL_ENV=d-grade rollup -c",
     "build": "yarn clean && mkdir -p dist && yarn polyfill:a-grade  && yarn polyfill:b-grade && yarn polyfill:c-grade && yarn polyfill:d-grade",
     "format": "prettier --write \"**/*.{html,md,mjs,js,jsx}\"",
     "clean": "rimraf lib dist es coverage",
