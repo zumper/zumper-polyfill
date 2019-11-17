@@ -1,4 +1,4 @@
-if (process.env.POLYFILL_ENV === 'legacy') {
+if (process.env.POLYFILL_ENV === 'd-grade') {
   require('whatwg-fetch')
   require('raf/polyfill')
   // https://github.com/Pomax/react-onclickoutside/blob/master/README.md#ie-does-not-support-classlist-for-svg-elements

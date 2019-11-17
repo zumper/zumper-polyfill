@@ -3,18 +3,32 @@ const loose = true
 
 let targets
 switch (POLYFILL_ENV) {
-  case 'current':
+  case 'a-grade':
+    targets = [
+      'last 2 chrome versions',
+      'last 2 firefox versions',
+      'last 1 safari version',
+      'last 1 ios version',
+    ]
+    break
+  case 'b-grade':
     // first browsers with "full" es6 support
+    // https://caniuse.com/#feat=intersectionobserver
+    // https://caniuse.com/#feat=es6-module
+    // https://caniuse.com/#feat=async-functions
+    // https://caniuse.com/#search=urlsearchparams
     targets = {
-      chrome: '58',
-      firefox: '55',
+      chrome: '61',
+      firefox: '60',
       ios: '12.2',
       safari: '12.1',
       edge: '17',
     }
     break
-  case 'recent':
+  case 'c-grade':
     // first browsers with `class`, promise and support for fetch
+    // https://caniuse.com/#feat=es6-class
+    // https://caniuse.com/#feat=fetch
     targets = {
       chrome: '49',
       firefox: '45',
@@ -23,14 +37,15 @@ switch (POLYFILL_ENV) {
       edge: '14',
     }
     break
-  case 'legacy':
+  case 'd-grade':
     targets = ['>0.2%', 'not dead', 'ie 11', 'chrome 38']
     break
 }
 
-const useCurrent = POLYFILL_ENV === 'current'
-const useRecent = POLYFILL_ENV === 'recent'
-const useLegacy = POLYFILL_ENV === 'legacy'
+const useAGrade = POLYFILL_ENV === 'a-grade'
+const useBGrade = POLYFILL_ENV === 'b-grade'
+const useCGrade = POLYFILL_ENV === 'c-grade'
+const useDGrade = POLYFILL_ENV === 'd-grade'
 
 module.exports = {
   presets: [
@@ -47,14 +62,14 @@ module.exports = {
           'es.array.copy-within',
           'es.array.every',
           'es.array.filter',
-          !useLegacy && 'es.array.find',
-          !useLegacy && 'es.array.find-index',
+          !useDGrade && 'es.array.find',
+          !useDGrade && 'es.array.find-index',
           'es.array.flat',
           'es.array.flat-map',
-          !useLegacy && 'es.array.from',
+          !useDGrade && 'es.array.from',
           'es.array.for-each',
           'es.array.index-of',
-          !useLegacy && 'es.array.includes',
+          !useDGrade && 'es.array.includes',
           'es.array.join',
           'es.array.last-index-of',
           'es.array.map',
@@ -96,7 +111,7 @@ module.exports = {
           'es.number.is-safe-integer',
           'es.number.max-safe-integer',
           'es.number.min-safe-integer',
-          !useLegacy && 'es.number.parse-float',
+          !useDGrade && 'es.number.parse-float',
           'es.number.to-fixed',
           'es.number.to-precision',
           'es.object.define-getter',
@@ -108,7 +123,7 @@ module.exports = {
           'es.object.lookup-setter',
           'es.object.prevent-extensions',
           'es.object.set-prototype-of',
-          !useLegacy && 'es.promise',
+          !useDGrade && 'es.promise',
           'es.promise.finally',
           'es.reflect.*',
           'es.regexp.*',
@@ -117,34 +132,35 @@ module.exports = {
           'es.string.blink',
           'es.string.bold',
           'es.string.code-point-at',
-          !useLegacy && 'es.string.ends-with',
+          !useDGrade && 'es.string.ends-with',
           'es.string.fixed',
           'es.string.from-code-point',
           'es.string.fontcolor',
           'es.string.fontsize',
-          !useLegacy && 'es.string.includes',
+          !useDGrade && 'es.string.includes',
           'es.string.italics',
           'es.string.link',
           'es.string.match',
           'es.string.pad-end',
           'es.string.pad-start',
           'es.string.raw',
-          !useLegacy && 'es.string.replace',
+          !useDGrade && 'es.string.replace',
           'es.string.search',
           'es.string.small',
           'es.string.split',
           'es.string.strike',
-          !useLegacy && 'es.string.starts-with',
+          !useDGrade && 'es.string.starts-with',
           'es.string.sub',
           'es.string.sup',
           'es.string.trim',
           'es.typed.*',
           'transform-regenerator',
+          useAGrade && 'web.dom-collections.iterator',
           'web.immediate',
           'web.queue-microtask',
-          !useLegacy && 'web.url',
-          !useLegacy && 'web.url.to-json',
-          useCurrent && 'web.url-search-params',
+          !useDGrade && 'web.url',
+          !useDGrade && 'web.url.to-json',
+          (useBGrade || useAGrade) && 'web.url-search-params',
         ].filter(Boolean),
         useBuiltIns: 'entry',
       },

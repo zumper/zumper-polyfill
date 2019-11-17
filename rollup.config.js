@@ -4,11 +4,13 @@ import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-replace'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 import { terser } from 'rollup-plugin-terser'
+import camelCase from 'lodash/camelCase'
+import upperFirst from 'lodash/upperFirst'
 
 import pkg from './package.json'
 const polyfillEnv = process.env.POLYFILL_ENV
 const target = `polyfill.${polyfillEnv}`
-const name = `${polyfillEnv}Pollyfill`
+const name = `${upperFirst(camelCase(polyfillEnv))}Pollyfill`
 const deps = [
   ...Object.keys(pkg.dependencies || {}),
   ...Object.keys(pkg.peerDependencies || {}),
@@ -96,7 +98,7 @@ export default [
   },
 
   // IIFE Production (whichPolyfill)
-  polyfillEnv === 'legacy' && {
+  polyfillEnv === 'd-grade' && {
     input: 'src/whichPolyfill.js',
     output: {
       file: `dist/whichPolyfill.min.js`,
