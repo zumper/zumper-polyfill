@@ -22,7 +22,7 @@ switch (POLYFILL_ENV) {
       firefox: '60',
       ios: '12.2',
       safari: '12.1',
-      edge: '17',
+      edge: '17', // <-- not considered b-grade for bundles
     }
     break
   case 'c-grade':
@@ -31,14 +31,14 @@ switch (POLYFILL_ENV) {
     // https://caniuse.com/#feat=fetch
     targets = {
       chrome: '49',
-      firefox: '45',
+      firefox: '46',
       ios: '10.3',
       safari: '10.1',
       edge: '14',
     }
     break
   case 'd-grade':
-    targets = ['>0.2%', 'not dead', 'ie 11', 'chrome 38']
+    targets = ['chrome 38', 'ie 11', '>0.2%', 'not dead', 'not op_mini all']
     break
 }
 

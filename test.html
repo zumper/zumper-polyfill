@@ -4,7 +4,27 @@
   </head>
   <body>
     <script src="./dist/whichBundle.min.js"></script>
+    Bundle:
+    <script>
+      function a() {
+        var start = performance.now()
+        var grade = whichBundle()
+        var end = performance.now()
+        return [grade, 'in', end - start, 'ms'].join(' ')
+      }
+      document.write(a())
+    </script>
     <script src="./dist/whichPolyfill.min.js"></script>
+    Polyfill:
+    <script>
+      function a() {
+        var start = performance.now()
+        var grade = whichPolyfill()
+        var end = performance.now()
+        return [grade, 'in', end - start, 'ms'].join(' ')
+      }
+      document.write(a())
+    </script>
     <script>
       !(function() {
         const bundles = [

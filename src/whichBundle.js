@@ -1,86 +1,108 @@
-// https://github.com/Tokimon/es-feature-detection/tree/master/syntax
-
-// unique to dGrade browsers
-// a dGrade browser would fail one of these tests
+// defaults
+// Unique to d-grade
+// a d-grade browser would fail one of these tests
 const dGrade = [
-  // es2015
-  'for(var i of []) {}', // for...of
-  // 'return /.*/y.sticky === true', // RegExp.prototype.sticky
-  // 'return /\\u{61}/u.unicode === true', // RegExp.prototype.unicode
-  'const b=42', // const
-  'let a=42', // let
-  'var {a:A,b:B=3}={a:1};var [a,b]=[1,2];', // Destructuring
-  'var a=[...[1,2]];var [...b]=a;', // Spread Array
-  'function t(a,b) {};t(...[1,2]);t.call(this,...[1,2])', // Spread Function call
-  'function t(a,...args) {};t(...[1,2,3]);t.call(this,...[1,2,3])', // Rest parameters
-  'function t(a=1) {};t()', // Default parameters
-  'var f=()=>{}', // Arrow function
-  'function* g(){}', // Generator function
-  '0b00100001', // Binary literals
-  '0o222', // Octal literals
-  'function f(a, b) {return a[0]+(b+1)+a[1];}var s=`life=${40+2}`,t=f`a:${5}x`', // Template Strings
-  'var a=2,o={a}', // Shorthand property
-  'var o={a(){}}', // Shorthand method
-  "var a='a',o={[a]:1,['p']:2,[a+'p']:3}", // Computed property
-  "(function(){'use strict';function f(){return 1;}{function f(){return 2;}}if(f()===2)throw 'Failed';})()", // Block level function declaration
-  'class A {};class B extends A {}', // class
+  // transform-arrow-functions { "chrome":"38", "ie":"11", "safari":"5.1" }
+  '()=>{}',
+  // transform-block-scoped-functions { "chrome":"38", "safari":"5.1" }
+  // TODO: unclear how to test "block-scoped-functions"
+  // transform-classes { "chrome":"38", "ie":"11", "safari":"5.1" }
+  'class A {};class B extends A {}',
+  // transform-object-super { "chrome":"38", "ie":"11", "safari":"5.1" }
+  'var a={a() {return 1}};var b={a() {return super.a()}};Object.setPrototypeOf(b,a);b.a()',
+  // transform-shorthand-properties { "chrome":"38", "ie":"11", "safari":"5.1" }
+  'var c=1;({c})',
+  '({c(){}})',
+  // transform-duplicate-keys { "chrome":"38", "ie":"11", "safari":"5.1" }
+  // TODO: unclear how to test "duplicate-keys"
+  // transform-computed-properties { "chrome":"38", "ie":"11", "safari":"5.1" }
+  'var d=1;({["x"+d]:1})',
+  // transform-sticky-regex { "chrome":"38", "ie":"11", "safari":"5.1" }
+  '/./y',
+  // transform-spread { "chrome":"38", "ie":"11", "safari":"5.1" }" }
+  'var e=[];[...e];isNaN(...e)',
+  // transform-new-target { "chrome":"38", "ie":"11", "safari":"5.1" }
+  'function f() {new.target}',
 ]
 
-// unique to cGrade browsers
-// a cGrade browser would fail one of these tests
+// c-grade
+// Unique to c-grade (excluding d-grade)
+// a c-grade browser would fail one of these tests
 const cGrade = [
-  // es2016
-  '2**3', // Exponentiation operator
-  'function f(a,{b:{c}},...[d,...e]){};f(1,{b: {c: 2}}, 3,4,5,6)', // Rest parameter destructuring
-  'var {a:{b,c}}={a:{b:1,c:2}}', // Nested rest destructuring
+  // transform-template-literals { "ios":"10.3", "safari":"10.1" }
+  'var a=1;`${a}`;function b(a, b) {return ""};b`${a}`',
+  // transform-literals { "firefox":"46" }
+  '0b11;0o7',
+  // transform-function-name { "chrome":"49", "edge":"14", "firefox":"46" }
+  // TODO: unclear how to test "function-name"
+  // transform-for-of { "chrome":"49", "edge":"14", "firefox":"46" }
+  'for(var c of []) {}',
+  // transform-unicode-regex { "chrome":"49", "firefox":"46", "ios":"10.3", "safari":"10.1" }
+  '/./u',
+  // transform-parameters { "edge":"14", "firefox":"46" }
+  'function d(x=0,{y},...z) {}',
+  // transform-destructuring { "chrome":"49", "edge":"14", "firefox":"46" }
+  'let {e}={};let[...f]=[]',
+  // transform-block-scoping { "firefox":"46", "ios":"10.3", "safari":"10.1" }
+  'let g=1;const h=1',
+  // transform-regenerator { "chrome":"49", "firefox":"46" }
+  'function* i(){}',
+  // transform-exponentiation-operator { "chrome":"49", "firefox":"46" }
+  'let j=1**1;j**=1;',
+  // proposal-object-rest-spread { "chrome":"49", "edge":"14", "firefox":"46", "ios":"10.3", "safari":"10.1" }
+  'let {...k}={};let l={...k}',
 ]
 
-// unique to bGrade browsers
-// a bGrade browser would fail one of these tests
+// b-grade
+// Unique to b-grade (excluding c-grade)
+// a b-grade browser would fail one of these tests
 const bGrade = [
-  // es2017
-  'async function f(){var a=await Promise.resolve(42);return a};f()', // async/await
-  'function f(a,b,){};f()', // Trailing parameter commas
+  // proposal-async-generator-functions { "chrome":"61" }
+  'async function*a(){await 1;yield 2;}',
+  // proposal-json-strings { "chrome":"61", "firefox":"60" }
+  // TODO: unclear how to test "json-strings"
+  // proposal-optional-catch-binding { "chrome":"61" }
+  'try {throw 0} catch {1}',
+  'try {throw 0} catch {1} finally {2}',
 ]
 
-// TODO: resort these into proper graded browsers instead of syntax years
-const grade2018 = [
-  // 'return /.*/s.dotAll === true', // RegExp.prototype.dotAll
-  // "var r = /(?<a>a)\\k<a>/.exec('aa'); return r && r.groups.a === 'a'", // RegExp Named Capture Groups
-  // '/(?<!a)b(?<=b)c/', // RegExp Lookbehind Assertions
-  'var a={a:1},b={b:2},c={...a,...b};var {...d}=c;', // Object Spread Properties
-  // "return typeof Symbol.asyncIterator !== 'undefined'", // Symbol.asyncIterator
-]
-
-const grade2019 = [
-  "try{throw ''}catch{return true;}", // Optional Catch Bindings
-]
-
-// NOTE: we don't need to test aGrade browsers
+// a-grade
+// Unique to a-grade (excluding b-grade)
+// an a-grade browser would fail one of these tests
+// NOTE: no need to test for aGrade as it's implied by passing the other tests
+// const aGrade = [
+//   // transform-dotall-regex { "firefox":"69" }
+//   '/./s.dotAll',
+//   // proposal-unicode-property-regex { "firefox":"69" }
+//   '/\p{Script=Greek}/u.test("μ")',
+//   // transform-named-capturing-groups-regex { "firefox":"69" }
+//   '/(?<a>\d)/.exec("1").groups.a'
+// ]
 
 // NOTE: we're testing for failures so the logic is inversed.
-const testSyntax = (script) => {
+const testSyntax = (grade) => {
+  const script = '"use strict";\n' + grade.join(';\n')
   try {
-    return new Function('"use strict";\n' + script)() === false
+    new Function(script)()
+    return false
   } catch (e) {
+    console.error(e)
     return true
   }
 }
+
 module.exports = () => {
   try {
-    if (dGrade.some(testSyntax)) {
+    if (testSyntax(dGrade)) {
       return 'd-grade'
-    } else if (cGrade.some(testSyntax)) {
+    } else if (testSyntax(cGrade)) {
       return 'c-grade'
-    } else if (bGrade.some(testSyntax)) {
+    } else if (testSyntax(bGrade)) {
       return 'b-grade'
-    } else if (grade2018.some(testSyntax)) {
-      return 'b-plus-grade'
-    } else if (grade2019.some(testSyntax)) {
-      return 'a-minus-grade'
     }
     return 'a-grade'
   } catch (error) {
+    console.error(error)
     return 'd-grade'
   }
 }
