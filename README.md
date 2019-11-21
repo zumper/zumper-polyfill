@@ -17,6 +17,51 @@ Instead of having just one polyfill, we decided to build four polyfills so that 
 yarn add @zumper/polyfill
 ```
 
+## API
+
+### `whichPolyfill`
+
+We include a convenience function that will perform feature tests in the browser and report which polyfill is best suited for that browser. This ensure that you don't ship unnecessary polyfills to browsers that don't need them.
+
+```html
+<!-- don't do it this way in your app -->
+<script src="https://unpkg.com/@zumper/polyfill/dist/whichPolyfill.min.js"></script>
+<script>
+  var grade = whichPolyfill()
+
+  // choose the right polyfill for this browser
+  var polyfill = document.createElement('script')
+  polyfill.src =
+    'https://unpkg.com/@zumper/polyfill/dist/polyfill.' + grade + '.js'
+  document.body.appendChild(polyfill)
+</script>
+```
+
+**NOTE:** Do not include the scripts directly from unpkg.com. It won't be very fast. See below for recommendations on how to integrate `whichPolyfill` in production.
+
+### `whichBundle`
+
+We also include a convenience function that will perform feature tests in the browser and report which _bundle_ is best suited for that browser.
+
+This is useful for serving different app bundles for modern and legacy browsers. It is independent of `whichPolyfill` because it detects support for _syntax_, which cannot be polyfilled.
+
+An a-grade browser can support things like `async` functions natively where-as a d-grade browser would throw syntax errors. Using `whichBundle` allows you to serve a different build of your app to different browsers.
+
+```html
+<!-- don't do it this way in your app -->
+<script src="https://unpkg.com/@zumper/polyfill/dist/whichBundle.min.js"></script>
+<script>
+  var grade = whichBundle()
+
+  // choose the right bundle for this browser
+  var bundle = document.createElement('script')
+  bundle.src = 'https://example.com/js/bundle.' + grade + '.js'
+  document.body.appendChild(bundle)
+</script>
+```
+
+**NOTE:** Do not include the scripts directly from unpkg.com. It won't be very fast. See below for recommendations on how to integrate `whichBundle` in production.
+
 ## Usage
 
 Unlike other polyfills, `@zumper/polyfill` takes some additional setup. It is designed to work with Zumper's code building strategy and may not suit all use cases. If you are looking for a simple polyfill solution, try [`@babel/polyfill`](https://babeljs.io/docs/en/babel-polyfill).
@@ -50,6 +95,10 @@ const config = {
 We also ship a `whichPolyfill` function in the `dist` folder. This function will identify the right polyfill for the current browser using feature detection.
 
 It is possible to read the minified polyfill directly from the `node_modules` folder.
+
+Our recommendation is to embed the script directly into your rendered HTML to ensure the fastest performance.
+
+**NOTE:** a similar approach should be used to embed `whichBundle` in your page.
 
 ```js
 const readWhichPolyfill = () => {
@@ -191,32 +240,32 @@ We essentially build the `@babel/polyfill` four times with different settings fo
 
 ### B Grade
 
+Support for [`IntersectionObserver`](https://caniuse.com/#feat=intersectionobserver), [ES6 Modules](https://caniuse.com/#feat=es6-module), and [URLSearchParams](https://caniuse.com/#search=urlsearchparams) is required to be a b-grade browser.
+
 - chrome: 61
 - firefox: 60
 - ios: 12.2
 - safari: 12.1
-- edge: 17
-
-Support for [`IntersectionObserver`](https://caniuse.com/#feat=intersectionobserver), [ES6 Modules](https://caniuse.com/#feat=es6-module), and [URLSearchParams](https://caniuse.com/#search=urlsearchparams) is required to be a b-grade browser.
+- edge: 17 (considered c-grade for `whichBundle`)
 
 ### C Grade
 
+These are the first browsers to support both [`class`](https://caniuse.com/#feat=es6-class) and [`fetch`](https://caniuse.com/#feat=fetch).
+
 - chrome: 49
-- firefox: 45
+- firefox: 46
 - ios: 10.3
 - safari: 10.1
 - edge: 14
 
-These are the first browsers to support both [`class`](https://caniuse.com/#feat=es6-class) and [`fetch`](https://caniuse.com/#feat=fetch).
-
 ### D Grade
 
-- &gt; 0.2%
-- not dead
+These are all of the browsers that are more-or-less the same as IE 11.
+
 - ie 11
 - chrome 38
-
-These are all of the browsers that are more or less the same as IE 11.
+- &gt; 0.2%
+- not dead
 
 ### Missing Polyfills?
 
