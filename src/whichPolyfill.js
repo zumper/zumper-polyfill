@@ -110,8 +110,9 @@ module.exports = () => {
       grade = 'c-grade'
     } else if (bGrade.some(testFeature)) {
       grade = 'b-grade'
+    } else {
+      grade = 'a-grade'
     }
-    grade = 'a-grade'
   } catch (error) {
     return 'd-grade'
   }

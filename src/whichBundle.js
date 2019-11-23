@@ -101,8 +101,9 @@ module.exports = () => {
       grade = 'c-grade'
     } else if (testSyntax(bGrade)) {
       grade = 'b-grade'
+    } else {
+      grade = 'a-grade'
     }
-    grade = 'a-grade'
   } catch (error) {
     console.error(error)
     return 'd-grade'

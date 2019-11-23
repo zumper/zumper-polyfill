@@ -20,8 +20,8 @@
     "gzipped": 27394
   },
   "dist/whichBundle.min.js": {
-    "bundled": 4021,
-    "minified": 919,
+    "bundled": 3999,
+    "minified": 901,
     "gzipped": 509
   },
   "dist/whichPolyfill.min.js": {
