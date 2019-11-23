@@ -62,6 +62,55 @@ An a-grade browser can support things like `async` functions natively where-as a
 
 **NOTE:** Do not include the scripts directly from unpkg.com. It won't be very fast. See below for recommendations on how to integrate `whichBundle` in production.
 
+## Creating multiple builds
+
+In your `package.json` you will want to specify a `"browserslist"`. Here you can see examples for each of the browser grades. Notice that Edge doesn't qualify as a b-grade browser because it doesn't support some key features based on [`@babel/preset-env`'s plugin data](https://github.com/babel/babel/blob/master/packages/babel-preset-env/data/plugins.json). Notice also that we list d-grade browsers as "defaults" to maintain compatibility with build tools that expect a single browserslist.
+
+```json
+"browserslist": {
+  "a-grade": [
+    "last 2 chrome versions",
+    "last 2 firefox versions",
+    "last 1 safari version",
+    "last 1 ios version"
+  ],
+  "b-grade": [
+    "chrome 61",
+    "firefox 60",
+    "ios 12.2",
+    "safari 12.1"
+  ],
+  "c-grade": [
+    "chrome 49",
+    "firefox 46",
+    "ios 10.3",
+    "safari 10.1",
+    "edge 14"
+  ],
+  "defaults": [
+    "chrome 38",
+    "ie 11",
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}
+```
+
+If you are using [create-react-app](https://create-react-app.dev/) you can create multiple targeted builds using [`BROWSERSLIST_ENV`](https://github.com/browserslist/browserslist#configuring-for-different-environments).
+
+Here is an example that would create two builds targeting b-grade and d-grade browsers.
+
+```bash
+# uses "defaults"
+npx react-scripts build
+
+# uses b-grade
+BROWSERSLIST_ENV=b-grade npx react-scripts build
+```
+
+**NOTE:** Zumper uses a customized version of create-react-app that offers improved support for multiple builds.
+
 ## Usage
 
 Unlike other polyfills, `@zumper/polyfill` takes some additional setup. It is designed to work with Zumper's code building strategy and may not suit all use cases. If you are looking for a simple polyfill solution, try [`@babel/polyfill`](https://babeljs.io/docs/en/babel-polyfill).
@@ -266,6 +315,7 @@ These are all of the browsers that are more-or-less the same as IE 11.
 - chrome 38
 - &gt; 0.2%
 - not dead
+- not op_mini all
 
 ### Missing Polyfills?
 

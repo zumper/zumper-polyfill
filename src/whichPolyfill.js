@@ -98,17 +98,22 @@ const bGrade = [
 // NOTE: we don't need to test for "aGrade" because that's the fallback polyfill
 
 const testFeature = (feature) => feature === false
+let grade
 module.exports = () => {
+  if (grade) {
+    return grade
+  }
   try {
     if (dGrade.some(testFeature)) {
-      return 'd-grade'
+      grade = 'd-grade'
     } else if (cGrade.some(testFeature)) {
-      return 'c-grade'
+      grade = 'c-grade'
     } else if (bGrade.some(testFeature)) {
-      return 'b-grade'
+      grade = 'b-grade'
     }
-    return 'a-grade'
+    grade = 'a-grade'
   } catch (error) {
     return 'd-grade'
   }
+  return grade
 }

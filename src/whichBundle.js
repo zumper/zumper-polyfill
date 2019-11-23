@@ -81,28 +81,31 @@ const bGrade = [
 
 // NOTE: we're testing for failures so the logic is inversed.
 const testSyntax = (grade) => {
-  const script = '"use strict";\n' + grade.join(';\n')
   try {
-    new Function(script)()
+    new Function('"use strict";\n' + grade.join(';\n'))()
     return false
   } catch (e) {
-    console.error(e)
     return true
   }
 }
 
+let grade
 module.exports = () => {
+  if (grade) {
+    return grade
+  }
   try {
     if (testSyntax(dGrade)) {
-      return 'd-grade'
+      grade = 'd-grade'
     } else if (testSyntax(cGrade)) {
-      return 'c-grade'
+      grade = 'c-grade'
     } else if (testSyntax(bGrade)) {
-      return 'b-grade'
+      grade = 'b-grade'
     }
-    return 'a-grade'
+    grade = 'a-grade'
   } catch (error) {
     console.error(error)
     return 'd-grade'
   }
+  return grade
 }

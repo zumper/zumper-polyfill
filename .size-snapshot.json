@@ -20,13 +20,13 @@
     "gzipped": 27394
   },
   "dist/whichBundle.min.js": {
-    "bundled": 3974,
-    "minified": 899,
-    "gzipped": 498
+    "bundled": 4021,
+    "minified": 919,
+    "gzipped": 509
   },
   "dist/whichPolyfill.min.js": {
-    "bundled": 4931,
-    "minified": 1544,
-    "gzipped": 733
+    "bundled": 5002,
+    "minified": 1572,
+    "gzipped": 746
   }
 }
