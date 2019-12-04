@@ -1,3 +1,9 @@
+/**
+ * @author       grady@zumper.com (Grady Kuhnline)
+ * @copyright    Copyright (c) 2019, Zumper
+ * @description  Polyfills that only apply to d-grade browsers
+ */
+
 if (process.env.POLYFILL_ENV === 'd-grade') {
   require('whatwg-fetch')
   require('raf/polyfill')

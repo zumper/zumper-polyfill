@@ -17,13 +17,13 @@
     <script src="./dist/whichPolyfill.min.js"></script>
     Polyfill:
     <script>
-      function a() {
+      function b() {
         var start = performance.now()
         var grade = whichPolyfill()
         var end = performance.now()
         return [grade, 'in', end - start, 'ms'].join(' ')
       }
-      document.write(a())
+      document.write(b())
     </script>
     <script>
       !(function() {

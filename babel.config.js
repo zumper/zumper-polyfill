@@ -1,4 +1,10 @@
-const { NODE_ENV, POLYFILL_ENV } = process.env
+/**
+ * @author       grady@zumper.com (Grady Kuhnline)
+ * @copyright    Copyright (c) 2019, Zumper
+ * @description  babel.config.js
+ */
+
+const { POLYFILL_ENV } = process.env
 const loose = true
 
 let targets
@@ -114,6 +120,7 @@ module.exports = {
           !useDGrade && 'es.number.parse-float',
           'es.number.to-fixed',
           'es.number.to-precision',
+          !useDGrade && 'es.object.assign',
           'es.object.define-getter',
           'es.object.define-setter',
           'es.object.get-prototype-of',
@@ -166,9 +173,4 @@ module.exports = {
       },
     ],
   ],
-  plugins: [
-    ['@babel/proposal-decorators', { legacy: true }],
-    ['@babel/proposal-object-rest-spread', { loose }],
-    '@babel/transform-react-jsx',
-  ].filter(Boolean),
 }

@@ -1,5 +1,8 @@
-// We need to know which is the best polyfill for the bGrade browser based on feature detection.
-// We have four polyfills: dGrade, cGrade, bGrade and aGrade
+/**
+ * @author       grady@zumper.com (Grady Kuhnline)
+ * @copyright    Copyright (c) 2019, Zumper
+ * @description  Feature detections to determine which polyfil best suits this browser
+ */
 
 const has = (thing, key) => notUndefined(thing) && notUndefined(thing[key])
 const notUndefined = (thing) => typeof thing !== 'undefined'

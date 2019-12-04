@@ -1,4 +1,9 @@
-// https://gist.github.com/paullewis/55efe5d6f05434a96c36
+/**
+ * @author       grady@zumper.com (Grady Kuhnline)
+ * @copyright    Copyright (c) 2019, Zumper
+ * @description  https://gist.github.com/paullewis/55efe5d6f05434a96c36
+ */
+
 if (!global.requestIdleCallback) {
   global.requestIdleCallback = (cb) =>
     setTimeout(() => {

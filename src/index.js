@@ -1,3 +1,9 @@
+/**
+ * @author       grady@zumper.com (Grady Kuhnline)
+ * @copyright    Copyright (c) 2019, Zumper
+ * @description  index.js
+ */
+
 import 'core-js/stable'
 
 import './intersectionObserver'

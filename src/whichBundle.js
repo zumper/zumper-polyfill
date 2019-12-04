@@ -1,3 +1,9 @@
+/**
+ * @author       grady@zumper.com (Grady Kuhnline)
+ * @copyright    Copyright (c) 2019, Zumper
+ * @description  Use code evaluation to determine which syntax this browser supports
+ */
+
 // defaults
 // Unique to d-grade
 // a d-grade browser would fail one of these tests

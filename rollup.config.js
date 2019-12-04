@@ -1,3 +1,9 @@
+/**
+ * @author       grady@zumper.com (Grady Kuhnline)
+ * @copyright    Copyright (c) 2019, Zumper
+ * @description  rollup.config.js
+ */
+
 import commonjs from 'rollup-plugin-commonjs'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
@@ -87,12 +93,17 @@ export default [
       sizeSnapshot(),
       terser({
         compress: {
+          ecma: polyfillEnv === 'd-grade' ? 5 : 6,
           pure_getters: true,
           unsafe: false,
+          unsafe_arrows: polyfillEnv === 'd-grade' ? false : true,
           unsafe_comps: true,
           warnings: false,
         },
-        safari10: true,
+        output: {
+          ecma: polyfillEnv === 'd-grade' ? 5 : 6,
+        },
+        safari10: polyfillEnv === 'd-grade' || polyfillEnv === 'c-grade',
       }),
     ],
   },
