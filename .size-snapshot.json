@@ -1,23 +1,23 @@
 {
   "dist/polyfill.a-grade.min.js": {
-    "bundled": 4520,
-    "minified": 4507,
-    "gzipped": 1559
+    "bundled": 13242,
+    "minified": 4539,
+    "gzipped": 1567
   },
   "dist/polyfill.b-grade.min.js": {
-    "bundled": 15442,
-    "minified": 15370,
-    "gzipped": 6074
+    "bundled": 48020,
+    "minified": 15524,
+    "gzipped": 6138
   },
   "dist/polyfill.c-grade.min.js": {
-    "bundled": 40744,
-    "minified": 40688,
-    "gzipped": 14352
+    "bundled": 127818,
+    "minified": 40948,
+    "gzipped": 14498
   },
   "dist/polyfill.d-grade.min.js": {
-    "bundled": 79095,
-    "minified": 78836,
-    "gzipped": 27388
+    "bundled": 231981,
+    "minified": 79287,
+    "gzipped": 27604
   },
   "dist/whichBundle.min.js": {
     "bundled": 4201,
