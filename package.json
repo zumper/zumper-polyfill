@@ -1,6 +1,6 @@
 {
   "name": "@zumper/polyfill",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "description": "Prebuilt polyfills for use in Zumper's React applications",
   "repository": "github:zumper/zumper-polyfill",
   "homepage": "https://github.com/zumper/zumper-polyfill",
