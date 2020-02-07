@@ -61,11 +61,11 @@ const dGrade = [
   notUndefined(global.fetch), // whatwg-fetch
   notUndefined(global.requestAnimationFrame) &&
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
+  // web.url &&  web.url-search-params
   notUndefined(global.URL) &&
-    doesNotThrow(() => global.URL && new global.URL('http://0')), // web.url
-  // Edge 16 and below do not add searchParams to URL prototype
-  notUndefined(global.URLSearchParams) && // web.url-search-params
-  !!global.URL && 'searchParams' in global.URL.prototype,
+  doesNotThrow(() => global.URL && new global.URL('http://0')) &&
+  notUndefined(global.URLSearchParams) &&
+    'searchParams' in global.URL.prototype, // Edge 16 and below do not add searchParams to URL prototype
 ]
 // polyfills in dGrade and cGrade (but not bGrade)
 // NOTE: a "cGrade" browser would fail these tests
