@@ -124,7 +124,6 @@ module.exports = {
           'es.object.define-getter',
           'es.object.define-setter',
           'es.object.get-prototype-of',
-          'es.object.from-entries',
           'es.object.is-extensible',
           'es.object.lookup-getter',
           'es.object.lookup-setter',

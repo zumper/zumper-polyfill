@@ -63,6 +63,9 @@ const dGrade = [
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
   notUndefined(global.URL) &&
     doesNotThrow(() => global.URL && new global.URL('http://0')), // web.url
+  // Edge 16 and below do not add searchParams to URL prototype
+  notUndefined(global.URLSearchParams) && // web.url-search-params
+  !!global.URL && 'searchParams' in global.URL.prototype,
 ]
 // polyfills in dGrade and cGrade (but not bGrade)
 // NOTE: a "cGrade" browser would fail these tests
@@ -81,7 +84,6 @@ const cGrade = [
   notUndefined(global.WeakMap), // weak-map
   notUndefined(global.WeakSet), // weak-set
   notUndefined(global.IntersectionObserver), // intersection-observer
-  notUndefined(global.URLSearchParams), // web.url-search-params
   notUndefined(NodeList.prototype.forEach), // web.dom-collections.for-each
 ]
 // polyfills in dGrade, cGrade and bGrade
