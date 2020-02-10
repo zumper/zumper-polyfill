@@ -96,6 +96,7 @@ const bGrade = [
   has(symbol, 'search'), // es.symbol.search
   has(symbol, 'split'), // es.symbol.split
   has(array, iterator), // es.array.iterator
+  notUndefined(obj.fromEntries), // es.object.from-entries
   notUndefined(string.trimEnd), // es.string.trim-end
   notUndefined(string.trimStart), // es.string.trim-start
   has(NodeList.prototype, iterator), // web.dom-collections.iterator
