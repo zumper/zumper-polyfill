@@ -63,8 +63,8 @@ const dGrade = [
     notUndefined(global.cancelAnimationFrame), // raf/polyfill
   // web.url &&  web.url-search-params
   notUndefined(global.URL) &&
-  doesNotThrow(() => global.URL && new global.URL('http://0')) &&
-  notUndefined(global.URLSearchParams) &&
+    doesNotThrow(() => global.URL && new global.URL('http://0')) &&
+    notUndefined(global.URLSearchParams) &&
     'searchParams' in global.URL.prototype, // Edge 16 and below do not add searchParams to URL prototype
 ]
 // polyfills in dGrade and cGrade (but not bGrade)

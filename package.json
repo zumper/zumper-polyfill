@@ -29,29 +29,29 @@
     "prepare": "yarn build"
   },
   "dependencies": {
-    "core-js": "^3.4.5",
-    "intersection-observer": "^0.7.0",
+    "core-js": "^3.6.5",
+    "intersection-observer": "^0.11.0",
     "raf": "^3.4.1",
     "smoothscroll-polyfill": "^0.4.4",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "@rollup/plugin-replace": "^2.2.1",
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "@rollup/plugin-replace": "^2.3.3",
     "cross-env": "^7.0.2",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.1.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "lodash": "^4.17.15",
-    "prettier": "^2.0.2",
+    "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
-    "rollup": "^2.3.2",
+    "rollup": "^2.18.1",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-size-snapshot": "^0.11.0",
-    "rollup-plugin-terser": "^5.3.0"
+    "rollup-plugin-size-snapshot": "^0.12.0",
+    "rollup-plugin-terser": "^6.1.0"
   },
   "prettier": {
     "arrowParens": "always",

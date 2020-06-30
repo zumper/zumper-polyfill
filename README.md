@@ -205,14 +205,14 @@ Below is an example of the bottom of a typical document.
 </script>
 <script>
   'use strict'
-  !(function() {
+  !(function () {
     var bundles = [
       'https://cdn.example.com/js/runtime-main.js',
       'https://cdn.example.com/js/main.js',
       'https://cdn.example.com/js/homepage.js',
     ]
-    var loadBundles = function() {
-      bundles.forEach(function(src) {
+    var loadBundles = function () {
+      bundles.forEach(function (src) {
         var bundle = document.createElement('script')
         bundle.src = src
         bundle.async = false
@@ -220,9 +220,9 @@ Below is an example of the bottom of a typical document.
         document.body.appendChild(bundle)
       })
     }
-    var loadPolyfill = function() {
+    var loadPolyfill = function () {
       var polyfill = document.createElement('script')
-      var timeout = setTimeout(function() {
+      var timeout = setTimeout(function () {
         console.warn('Polyfill timed out!')
       }, 1000)
       // 3. Choose the right polyfill to load
@@ -232,18 +232,18 @@ Below is an example of the bottom of a typical document.
       polyfill.crossOrigin = 'anonymous'
 
       // 4. Delay loading the bundles until the polyfill has loaded
-      polyfill.onload = function() {
+      polyfill.onload = function () {
         clearTimeout(timeout)
         loadBundles()
       }
-      polyfill.onerror = function(error) {
+      polyfill.onerror = function (error) {
         console.error('Polyfill load error!', error)
       }
       document.body.appendChild(polyfill)
     }
 
     // 2. Delay loading the polyfill until the HTML has finished loading
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       var raf =
         window.requestAnimationFrame ||
         window.mozRequestAnimationFrame ||
