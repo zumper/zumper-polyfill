@@ -85,7 +85,7 @@ const bGrade = [
 //   '/(?<a>\d)/.exec("1").groups.a'
 // ]
 
-// NOTE: we're testing for failures so the logic is inversed.
+// NOTE: we're testing for failures so the logic is inverted.
 const testSyntax = (grade) => {
   try {
     new Function('"use strict";\n' + grade.join(';\n'))()

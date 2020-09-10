@@ -10,14 +10,14 @@
     "gzipped": 7310
   },
   "polyfill.c-grade.min.js": {
-    "bundled": 141608,
-    "minified": 44442,
-    "gzipped": 15765
+    "bundled": 141405,
+    "minified": 44390,
+    "gzipped": 15743
   },
   "polyfill.d-grade.min.js": {
-    "bundled": 250661,
-    "minified": 84618,
-    "gzipped": 29580
+    "bundled": 250239,
+    "minified": 84410,
+    "gzipped": 29512
   },
   "whichBundle.min.js": {
     "bundled": 4201,
