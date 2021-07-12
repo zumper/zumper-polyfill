@@ -165,6 +165,7 @@ module.exports = {
           !useDGrade && 'web.url.to-json',
           (useBGrade || useAGrade) && 'web.url-search-params',
         ].filter(Boolean),
+        include: ['esnext.string.replace-all'].filter(Boolean),
         useBuiltIns: 'entry',
       },
     ],
