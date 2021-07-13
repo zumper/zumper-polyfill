@@ -25,8 +25,8 @@
     "gzipped": 503
   },
   "whichPolyfill.min.js": {
-    "bundled": 5685,
-    "minified": 1747,
-    "gzipped": 802
+    "bundled": 5659,
+    "minified": 1716,
+    "gzipped": 795
   }
 }

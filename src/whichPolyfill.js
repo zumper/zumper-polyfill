@@ -100,7 +100,7 @@ const bGrade = [
   notUndefined(string.trimEnd), // es.string.trim-end
   notUndefined(string.trimStart), // es.string.trim-start
   notUndefined(global.AggregateError), // esnext.aggregate-error
-  typeof globalThis !== 'undefined', // esnext.global-this
+  // skipped: esnext.global-this
   has(global.Promise, 'allSettled'), // esnext.promise.all-settled
   has(global.Promise, 'any'), // esnext.promise.any
   has(string, 'matchAll'), // esnext.string.match-all
