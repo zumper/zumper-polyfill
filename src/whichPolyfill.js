@@ -1,7 +1,7 @@
 /**
  * @author       grady@zumper.com (Grady Kuhnline)
  * @copyright    Copyright (c) 2019, Zumper
- * @description  Feature detections to determine which polyfil best suits this browser
+ * @description  Feature detections to determine which polyfill best suits this browser
  */
 
 const has = (thing, key) => notUndefined(thing) && notUndefined(thing[key])
@@ -99,6 +99,12 @@ const bGrade = [
   notUndefined(obj.fromEntries), // es.object.from-entries
   notUndefined(string.trimEnd), // es.string.trim-end
   notUndefined(string.trimStart), // es.string.trim-start
+  notUndefined(global.AggregateError), // esnext.aggregate-error
+  typeof globalThis !== 'undefined', // esnext.global-this
+  has(global.Promise, 'allSettled'), // esnext.promise.all-settled
+  has(global.Promise, 'any'), // esnext.promise.any
+  has(string, 'matchAll'), // esnext.string.match-all
+  has(string, 'replaceAll'), // esnext.string.replace-all
   has(NodeList.prototype, iterator), // web.dom-collections.iterator
 ]
 // NOTE: we don't need to test for "aGrade" because that's the fallback polyfill

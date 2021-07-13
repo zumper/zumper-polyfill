@@ -7,9 +7,9 @@ This polyfill is designed to work differently than [`@babel/polyfill`](https://b
 Instead of having just one polyfill, we decided to build four polyfills so that browsers with more capabilities will get a smaller file. This is similar in concept to what [polyfill.io](https://polyfill.io/v2/docs/) offers. However, instead of supporting an infinite number of polyfill combinations, we chose the groupings that seemed to balance file size well enough to suit our needs.
 
 - **A Grade:** 1.5 kB gzipped, latest Chrome, Firefox and Safari
-- **B Grade:** 6.1 kB gzipped, the latest features; requires very few polyfills.
-- **C Grade:** 14.4 kB gzipped, fairly new; needs more polyfills.
-- **D Grade:** 27.4 kB gzipped, needs the most polyfills.
+- **B Grade:** 10.2 kB gzipped, the latest features; requires very few polyfills.
+- **C Grade:** 19.3 kB gzipped, fairly new; needs more polyfills.
+- **D Grade:** 33.1 kB gzipped, needs the most polyfills.
 
 ## Install
 
