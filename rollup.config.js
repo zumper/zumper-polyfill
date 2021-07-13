@@ -32,6 +32,7 @@ export default [
       replace({
         'process.env.NODE_ENV': JSON.stringify('development'),
         'process.env.POLYFILL_ENV': JSON.stringify(polyfillEnv),
+        preventAssignment: true,
       }),
       commonjs(),
       babel(),
@@ -47,6 +48,7 @@ export default [
       replace({
         'process.env.NODE_ENV': JSON.stringify('development'),
         'process.env.POLYFILL_ENV': JSON.stringify(polyfillEnv),
+        preventAssignment: true,
       }),
       commonjs(),
       babel(),
@@ -66,6 +68,7 @@ export default [
       replace({
         'process.env.NODE_ENV': JSON.stringify('development'),
         'process.env.POLYFILL_ENV': JSON.stringify(polyfillEnv),
+        preventAssignment: true,
       }),
       nodeResolve(),
       commonjs(),
@@ -86,6 +89,7 @@ export default [
       replace({
         'process.env.NODE_ENV': JSON.stringify('production'),
         'process.env.POLYFILL_ENV': JSON.stringify(polyfillEnv),
+        preventAssignment: true,
       }),
       nodeResolve(),
       commonjs(),

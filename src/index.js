@@ -5,6 +5,7 @@
  */
 
 import 'core-js/stable'
+import 'core-js/stage/4'
 
 import './intersectionObserver'
 import './requestIdleCallback'

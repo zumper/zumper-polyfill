@@ -3,4 +3,6 @@ dist
 es
 lib
 whichBundleScript.js
+whichBundleScript.mjs
 whichPolyfillScript.js
+whichPolyfillScript.mjs
