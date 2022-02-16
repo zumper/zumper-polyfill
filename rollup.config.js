@@ -30,12 +30,12 @@ export default [
     external,
     plugins: [
       replace({
-        'process.env.NODE_ENV': JSON.stringify('development'),
+        'process.env.NODE_ENV': JSON.stringify('production'),
         'process.env.POLYFILL_ENV': JSON.stringify(polyfillEnv),
         preventAssignment: true,
       }),
       commonjs(),
-      babel(),
+      babel({ babelHelpers: 'bundled' }),
     ],
   },
 
@@ -46,12 +46,12 @@ export default [
     external,
     plugins: [
       replace({
-        'process.env.NODE_ENV': JSON.stringify('development'),
+        'process.env.NODE_ENV': JSON.stringify('production'),
         'process.env.POLYFILL_ENV': JSON.stringify(polyfillEnv),
         preventAssignment: true,
       }),
       commonjs(),
-      babel(),
+      babel({ babelHelpers: 'bundled' }),
     ],
   },
 
@@ -72,7 +72,7 @@ export default [
       }),
       nodeResolve(),
       commonjs(),
-      babel(),
+      babel({ babelHelpers: 'bundled' }),
     ],
   },
 
@@ -93,7 +93,7 @@ export default [
       }),
       nodeResolve(),
       commonjs(),
-      babel(),
+      babel({ babelHelpers: 'bundled' }),
       sizeSnapshot(),
       terser({
         compress: {
@@ -124,7 +124,7 @@ export default [
     plugins: [
       nodeResolve(),
       commonjs(),
-      babel(),
+      babel({ babelHelpers: 'bundled' }),
       sizeSnapshot(),
       terser({
         compress: {
@@ -149,7 +149,7 @@ export default [
     plugins: [
       nodeResolve(),
       commonjs(),
-      babel(),
+      babel({ babelHelpers: 'bundled' }),
       sizeSnapshot(),
       terser({
         compress: {

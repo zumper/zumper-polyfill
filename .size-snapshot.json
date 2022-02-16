@@ -5,19 +5,19 @@
     "gzipped": 1551
   },
   "polyfill.b-grade.min.js": {
-    "bundled": 84637,
-    "minified": 25475,
-    "gzipped": 10261
+    "bundled": 110982,
+    "minified": 32237,
+    "gzipped": 13510
   },
   "polyfill.c-grade.min.js": {
-    "bundled": 176881,
-    "minified": 52160,
-    "gzipped": 19349
+    "bundled": 209935,
+    "minified": 60358,
+    "gzipped": 23403
   },
   "polyfill.d-grade.min.js": {
-    "bundled": 289420,
-    "minified": 91840,
-    "gzipped": 33169
+    "bundled": 321761,
+    "minified": 98953,
+    "gzipped": 37128
   },
   "whichBundle.min.js": {
     "bundled": 4190,

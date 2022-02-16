@@ -119,6 +119,8 @@ module.exports = {
           'es.number.to-precision',
           !useDGrade && 'es.object.assign',
           'es.object.define-getter',
+          'es.object.define-properties',
+          'es.object.define-property',
           'es.object.define-setter',
           'es.object.get-prototype-of',
           'es.object.is-extensible',
