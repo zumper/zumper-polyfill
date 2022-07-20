@@ -159,6 +159,7 @@ module.exports = {
           'es.string.sup',
           'es.string.trim',
           'es.typed.*',
+          'esnext.aggregate-error',
           'transform-regenerator',
           useAGrade && 'web.dom-collections.iterator',
           'web.immediate',

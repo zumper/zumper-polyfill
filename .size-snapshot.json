@@ -5,28 +5,28 @@
     "gzipped": 1551
   },
   "polyfill.b-grade.min.js": {
-    "bundled": 113946,
-    "minified": 33003,
-    "gzipped": 13698
+    "bundled": 110125,
+    "minified": 31972,
+    "gzipped": 13232
   },
   "polyfill.c-grade.min.js": {
-    "bundled": 216600,
-    "minified": 62157,
-    "gzipped": 24007
+    "bundled": 212753,
+    "minified": 61126,
+    "gzipped": 23577
   },
   "polyfill.d-grade.min.js": {
-    "bundled": 329884,
-    "minified": 101103,
-    "gzipped": 37825
+    "bundled": 326037,
+    "minified": 100072,
+    "gzipped": 37289
   },
   "whichBundle.min.js": {
-    "bundled": 4190,
-    "minified": 892,
-    "gzipped": 503
+    "bundled": 3377,
+    "minified": 1160,
+    "gzipped": 650
   },
   "whichPolyfill.min.js": {
-    "bundled": 5659,
-    "minified": 1716,
-    "gzipped": 795
+    "bundled": 5740,
+    "minified": 1743,
+    "gzipped": 801
   }
 }
