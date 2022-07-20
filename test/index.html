@@ -47,7 +47,7 @@
           const timeout = setTimeout(function () {
             console.warn('Polyfill timed out!')
           }, 1000)
-          polyfill.src = './dist/polyfill.' + whichPolyfill() + '.min.js'
+          polyfill.src = '../dist/polyfill.' + whichPolyfill() + '.min.js'
           polyfill.async = false
           polyfill.crossorigin = 'anonymous'
           polyfill.onload = function () {

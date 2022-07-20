@@ -2,7 +2,7 @@ node_modules
 dist
 es
 lib
-test-embedded.html
+test/embedded.html
 whichBundleScript.js
 whichBundleScript.mjs
 whichPolyfillScript.js
