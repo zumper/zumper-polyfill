@@ -1720,7 +1720,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zumper/polyfill@workspace:."
   dependencies:
+    "@babel/compat-data": ^7.18.8
     "@babel/core": ^7.18.9
+    "@babel/helper-compilation-targets": ^7.18.9
     "@babel/preset-env": ^7.18.9
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^22.0.1

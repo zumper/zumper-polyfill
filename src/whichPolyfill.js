@@ -95,6 +95,8 @@ const bGrade = [
   has(symbol, 'replace'), // es.symbol.replace
   has(symbol, 'search'), // es.symbol.search
   has(symbol, 'split'), // es.symbol.split
+  has(array, 'flat'), // es.array.flat
+  has(array, 'flatMap'), // es.array.flat-map
   has(array, iterator), // es.array.iterator
   notUndefined(obj.fromEntries), // es.object.from-entries
   notUndefined(string.trimEnd), // es.string.trim-end

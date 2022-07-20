@@ -21,6 +21,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npx http-server -c-1 -g --no-dotfiles -o ./test .",
+    "check-plugins": "node ./tools/check-plugins.js",
     "build:a-grade": "cross-env POLYFILL_ENV=a-grade rollup -c",
     "build:b-grade": "cross-env POLYFILL_ENV=b-grade rollup -c",
     "build:c-grade": "cross-env POLYFILL_ENV=c-grade rollup -c",
@@ -40,7 +41,9 @@
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
+    "@babel/compat-data": "^7.18.8",
     "@babel/core": "^7.18.9",
+    "@babel/helper-compilation-targets": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.1",
