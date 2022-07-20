@@ -4,48 +4,16 @@
  * @description  babel.config.js
  */
 
+const { gradedTargets } = require('./tools/gradedTargets')
+
 const { POLYFILL_ENV } = process.env
 const loose = true
 
-let targets
-switch (POLYFILL_ENV) {
-  case 'a-grade':
-    targets = [
-      'last 2 chrome versions',
-      'last 2 firefox versions',
-      'last 1 safari version',
-      'last 1 ios version',
-    ]
-    break
-  case 'b-grade':
-    // first browsers with "full" es6 support
-    // https://caniuse.com/#feat=intersectionobserver
-    // https://caniuse.com/#feat=es6-module
-    // https://caniuse.com/#feat=async-functions
-    // https://caniuse.com/#search=urlsearchparams
-    targets = {
-      chrome: '61',
-      firefox: '60',
-      ios: '12.2',
-      safari: '12.1',
-      edge: '17', // <-- not considered b-grade for bundles
-    }
-    break
-  case 'c-grade':
-    // first browsers with `class`, promise and support for fetch
-    // https://caniuse.com/#feat=es6-class
-    // https://caniuse.com/#feat=fetch
-    targets = {
-      chrome: '49',
-      firefox: '46',
-      ios: '10.3',
-      safari: '10.1',
-      edge: '14',
-    }
-    break
-  case 'd-grade':
-    targets = ['chrome 38', 'ie 11', '>0.2%', 'not dead', 'not op_mini all']
-    break
+const targets = gradedTargets.get(POLYFILL_ENV)
+if (targets === undefined) {
+  throw new Error(
+    `Could not find graded targets for POLYFILL_ENV=${POLYFILL_ENV}`
+  )
 }
 
 const useAGrade = POLYFILL_ENV === 'a-grade'
